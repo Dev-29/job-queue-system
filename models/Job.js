@@ -25,6 +25,10 @@ const jobSchema = new mongoose.Schema({
         enum: ['low', 'medium', 'high'],
         default: 'low'
     },
+    cancellable: {
+        type: Boolean,
+        default: true
+    },
 });
 
 module.exports = mongoose.model('Job', jobSchema);

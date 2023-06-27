@@ -10,10 +10,12 @@ const createCommand = require('./commands/create');
 const listCommand = require('./commands/list');
 const processCommand = require('./commands/process');
 const updateCommand = require('./commands/update');
+const cancelCommand = require('./commands/cancel');
 
 program.addCommand(createCommand);
 program.addCommand(listCommand);
 program.addCommand(processCommand);
 program.addCommand(updateCommand);
+program.addCommand(cancelCommand);
 
 program.parse(process.argv);
