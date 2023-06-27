@@ -19,10 +19,11 @@ The Job Queue System is a command-line application built with Node.js and MongoD
    ```shell
    git clone github.com/Dev-29/job-queue-system.git
    ```
+   ```shell
    cd job-queue-system
     ```
 
-2. Install dependencies:
+3. Install dependencies:
     ```shell
     npm install
     ```
