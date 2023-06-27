@@ -10,18 +10,23 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_URI);
 
 const createCommand = new Command('create');
+
 createCommand
-    .option('-t, --title <title>', 'Job Title')
-    .option('-d, --description <description>', 'Job Description')
-    .action(async (options) => {
+    .arguments('<title> <description> [priority]')
+    .action(async (title, description, priority) => {
         try {
-            const { title, description } = options;
-            const job = new Job({ title, description });
+            const job = new Job({
+                title,
+                description,
+                priority: priority || 'low',
+                status: 'pending'
+            });
             await job.save();
-            console.log('Job created successfully');
+
+            console.log(`Job ${job._id} created.`);
             process.exit(0);
         } catch (error) {
-            console.error(`Error creating job: ${error.message}`);
+            console.error('Error creating job:', error);
             process.exit(1);
         }
     });
